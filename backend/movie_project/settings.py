@@ -23,10 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#wzm-w90c0(0%vz!woczf3@1m%ci1--31fpb$gk1sz1qqr^bvx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['movie-review-system-ze6r.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -55,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ALLOW_ALL_ORIGINS = True  # For testing only
+CORS_ALLOW_ORIGINS = ["https://movie-review-system-delta.vercel.app"]  # For testing only
 
 ROOT_URLCONF = 'movie_project.urls'
 
@@ -122,7 +121,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+import os
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+
+# Where collectstatic will copy all static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Optional: additional dirs for static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # if you have project-level static folder
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
