@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/", // backend Django API URL
+  baseURL: "https://movie-review-system-ze6r.onrender.com/api/", // backend Django API URL
 });
 
 export const endpoints = {
